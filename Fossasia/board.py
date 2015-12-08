@@ -23,7 +23,7 @@ class Board(object):
                     treasures = treasures-1
         #Assign random card function
 
-    def surrounded(self, row, col): #Determine all the neighbours of an item (HARD PART LOL)
+    def surrounded(self, row, col): #Determine all the neighbours of an item - This approach took me some time
         neighbours = 0 #This is the best approach :)
         row_limit = len(self.board);
         if row_limit > 1:
