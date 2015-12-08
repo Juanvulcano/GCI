@@ -44,8 +44,10 @@ class Board(object):
        return self.board
 
 Finish = Board(board)
-print Finish.print_board() # Normal Board Game function
+Finish.print_board() # Normal Board Game function
+print '--------'
 Finish.shuffle() # Assign random cards 
-print Finish.print_board() # Debug function = Print board after random 
+Finish.print_board() # Debug function = Print board after random 
+print '--------'
 Finish.final() #Change empty spaces for their corresponding adjacent treasures
-print Finish.print_board()#Glorious ending
+Finish.print_board()#Glorious ending
