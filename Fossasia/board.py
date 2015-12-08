@@ -24,129 +24,17 @@ class Board(object):
         #Assign random card function
 
     def surrounded(self, row, col): #Determine all the neighbours of an item (HARD PART LOL)
-        neighbours = 0 #This is not the best approach but it's the most readable
-        if row == 0 and col == 0: # Quick hint, it looked better in my mind
-            if self.board[row+1][col] == "X":
-                    neighbours += 1
-            if self.board[row+1][col+1] == "X":
-                    neighbours += 1
-            if self.board[row][col+1] == "X":
-                    neighbours += 1
-
-        if  1 <= row <= 2  and col == 0:	
-            if self.board[row+1][col] == "X":
-                    neighbours += 1
-            if self.board[row+1][col+1] == "X":
-                    neighbours += 1
-            if self.board[row][col+1] == "X":
-                    neighbours += 1
-            if self.board[row-1][col] == "X":
-                    neighbours += 1
-            if self.board[row-1][col+1] == "X":
-                    neighbours += 1
-
-        if row == 0 and col == 3: 
-            if self.board[row+1][col] == "X":
-                    neighbours += 1
-            if self.board[row+1][col-1] == "X":
-                    neighbours += 1
-            if self.board[row][col-1] == "X":
-                    neighbours += 1
-       
-        if row == 3 and col == 3:
-            if self.board[row-1][col] == "X":
-                    neighbours += 1
-            if self.board[row-1][col-1] == "X":
-                    neighbours += 1
-            if self.board[row][col-1] == "X":
-                    neighbours += 1
-
-        if row == 3 and col == 0:
-            if self.board[row-1][col] == "X":
-                    neighbours += 1
-            if self.board[row-1][col+1] == "X":
-                    neighbours += 1
-            if self.board[row][col+1] == "X":
-                    neighbours += 1
-
-        if 1 <= row <= 2 and col == 3:
-            if self.board[row+1][col] == "X":
-                    neighbours += 1
-            if self.board[row-1][col] == "X":
-                    neighbours += 1
-            if self.board[row-1][col-1] == "X":
-                    neighbours += 1
-            if self.board[row][col-1] == "X":
-                    neighbours += 1
-            if self.board[row+1][col-1] == "X":
-                    neighbours += 1
-
-        if row == 0 and 1 <= col <= 2:
-            if self.board[row+1][col] == "X":
-                    neighbours += 1
-            if self.board[row+1][col+1] == "X":
-                    neighbours += 1
-            if self.board[row+1][col-1] == "X":
-                    neighbours += 1                
-            if self.board[row][col-1] == "X":
-                    neighbours += 1
-            if self.board[row][col+1] == "X":
-                    neighbours += 1
-
-        if row == 3 and 1 <= col <= 2:
-            if self.board[row-1][col] == "X":
-                    neighbours += 1
-            if self.board[row-1][col+1] == "X":
-                    neighbours += 1
-            if self.board[row-1][col-1] == "X":
-                    neighbours += 1
-            if self.board[row][col-1] == "X":
-                    neighbours += 1
-            if self.board[row][col+1] == "X":
-                    neighbours += 1
-
-        if 1 <= row <= 2 and 1 <= col <= 2:  
-            try:
-                if self.board[row-1][col - 1] == "X":
-                    neighbours += 1
-            except IndexError:
-                pass
-            try:
-                if self.board[row][col-1] == "X":
-                    neighbours += 1
-            except IndexError:
-                pass
-            try:
-                if self.board[row+1][col - 1] == "X":
-                    neighbours += 1
-            except IndexError:
-                pass
-            try:
-                if self.board[row-1][col] == "X":
-                    neighbours += 1
-            except IndexError:
-                pass
-            try:
-                if self.board[row+1][col] == "X":
-                    neighbours += 1
-            except IndexError:
-                pass
-            try:
-                if self.board[row-1][col+1] == "X":
-                    neighbours += 1
-            except IndexError:
-                pass
-            try:
-                if self.board[row][col+1] == "X":
-                    neighbours += 1
-            except IndexError:
-                pass
-            try:
-                if self.board[row+1][col+1] == "X":
-                    neighbours += 1
-            except IndexError:
-                pass
+        neighbours = 0 #This is the best approach :)
+        row_limit = len(self.board);
+        if row_limit > 1:
+            column_limit = len(self.board[0]);
+            for x in range(max(0, row-1), min(row+2, row_limit)):
+                for y in range(max(0, col-1),min(col+2, column_limit)):
+                    if x != row or y != col:
+                        if self.board[x][y]== "X":
+                            neighbours = neighbours + 1;
         return str(neighbours)
+    
 
     def final(self):
        for x in range(0,len(self.board)):
