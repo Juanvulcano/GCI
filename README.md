@@ -1,5 +1,5 @@
 # GCI
-My google code in accomplished tasks, every code added to this repository was written by Juan Verhook and is licensed under MIT.
+My google code in accomplished tasks, code added to this repository was written by myself, Juan Verhook and is licensed under MIT.
 
 Copyright (c) 2015 Juan Verhook
 
