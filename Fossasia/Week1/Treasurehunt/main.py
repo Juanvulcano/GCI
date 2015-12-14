@@ -12,7 +12,7 @@ from kivy.event import EventDispatcher
 from kivy.uix.popup import Popup
 kivy.require('1.8.0')
 #Determine size of your board
-tiles = 6
+tiles = 5
 def restart(size):
     Size = []
     for x in range(size):
@@ -22,7 +22,7 @@ global tiles
 Finish = Board(restart(tiles))
 
 class GridMixin(EventDispatcher):
-    value = NumericProperty(0, min=0, max=9)
+    value = NumericProperty(0, min=0, max=20)
 
 class SelectSizePopup(Popup):
     button = ObjectProperty()
@@ -80,7 +80,18 @@ class TreasureHuntGrid(GridLayout):
               coords=(row, column))
               grid_entry.bind(on_release=self.button_pressed)
               self.add_widget(grid_entry)
-        self.attempts = 8
+        if self.value == 4:
+            self.attempts = 6
+        if self.value == 5:
+            self.attempts = 8
+        if self.value == 6:
+            self.attempts = 10
+        if self.value == 9:
+            self.attempts = 15
+        if self.value == 12:
+            self.attempts = 20
+        if self.value == 15:
+            self.attempts = 25
         self.treasuresfound = 0
         for child in self.children: #All child widget
             child.text = ''
