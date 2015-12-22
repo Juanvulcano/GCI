@@ -80,7 +80,6 @@ def sunrise(location):
 	f = ((ut % 1) * 60)/100
 	ut = (int(ut) + f)
 	ut = ut - (ut % 0.01)
-        print "Sun rises at " + str(ut) + " (HOURS:MINUTES) UTC/GMT"
 	return ut
 
 def distance_difference(location1, location2):
@@ -110,18 +109,17 @@ print "Just input name of the City and Country of two different places"
 print "This script will handle the rest!"
 print "In Google's headquarters at Mountain View"
 sunrise(location1)
-print "In the current location of Fossasia 2016 Conference at Singapore"  
-sunrise(location2) 
+print "In the current location of Fossasia 2016 Conference at Singapore"
+sunrise(location2)
 print "The difference of distances from this two points in miles is: "
 print distance_difference(location1,location2)
 location3 = raw_input("Input the address and coordinates to geolocate the query")
 location3 = geolocator.geocode(location3, timeout=20)
-print "In the first location"
-sunrise(location3)
-print "In the second location"
+print "In the first location the Sun rises at " + str(sunrise(location3)) + " (HOURS:MINUTES) UTC/GMT"
 location4 = raw_input("Input the address and coordinates to geolocate the query")
 location4 = geolocator.geocode(location4, timeout=20)
-sunrise(location4)
+print "In the second location the Sun rises at " + str(sunrise(location4)) + " (HOURS:MINUTES) UTC/GMT"
 print "The difference of distances from this two points in miles is: "
 print distance_difference(location3,location4)
 hour_difference(sunrise(location3), sunrise(location4))
+
