@@ -88,15 +88,15 @@ def distance_difference(location1, location2):
 
 def hour_difference(hour1, hour2):
 	if hour1 > hour2:
-		final = hour1-hour2
+		final = hour1-hour2-0.40
 		if final % 1 > 0.60:
-			final = final - 0.40
-		print "The sun rises " str(final)  "earlier in Location2 than in Location1"
+			final = final
+		print "The sun rises " +str(final) + " earlier in Location2 than in Location1"
 	else:
-		final = hour2-hour1
+		final = hour2-hour1-0.40
 		if final % 1 > 0.60:
-			final = final - 0.40
-		print "The sun rises " str(final) "later in Location2 than in Location1"
+			final = final -0.40
+		print "The sun rises " +str(final)+ " later in Location2 than in Location1"
 print "Welcome to the World Distance Calculator, it have been " + str(daysfromj2000) + " days since J2000.0"
 print "In today's facts:"
 print "Delta is " + str(delta)
@@ -118,8 +118,10 @@ location3 = raw_input("Input the address and coordinates to geolocate the query"
 location3 = geolocator.geocode(location3, timeout=20)
 print "In the first location"
 sunrise(location3)
+print "In the second location"
 location4 = raw_input("Input the address and coordinates to geolocate the query")
 location4 = geolocator.geocode(location4, timeout=20)
 sunrise(location4)
 print "The difference of distances from this two points in miles is: "
 print distance_difference(location3,location4)
+hour_difference(sunrise(location3), sunrise(location4))
