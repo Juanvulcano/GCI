@@ -106,7 +106,7 @@ print "Local sidereal time" + str(LMST)
 print "Eq of time " + str(Eqoftime)
 print "-------------------------------------------------------------"
 print "Take a look at some examples!"
-print "Just input latitude and longitude of two different places"
+print "Just input name of the City and Country of two different places"
 print "This script will handle the rest!"
 print "In Google's headquarters at Mountain View"
 sunrise(location1)
